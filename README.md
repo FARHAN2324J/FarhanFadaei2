@@ -4,6 +4,6 @@
 
 ## Portfolio screenshots 🖼️
 
-(./assets/images/screenshotPF2)
-(./assets/images/screenshotPF)
-(./assets/images/screenshot3)
+(./src/assets/images/screenshotPF2)
+(./src/assets/images/screenshotPF)
+(./src/assets/images/screenshot3)
