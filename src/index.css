@@ -1,0 +1,243 @@
+@import "tailwindcss";
+
+:root {
+  --white: #ffffff;
+  --white-12: #ffffff1f;
+  --white-4: #ffffff0a;
+  --gray: #8d8d8d;
+  --black: #1A1A1A;
+  /* Base grays and surfaces */
+  --gray-900: #141414;
+  --gray-800: #181818;
+  --gray-700: #212121;
+  --gray-600: #292929;
+  --gray-500: #393939;
+  --gray-400: #3f3f3f;
+
+  /* Transparent variants */
+  --gray-500-31: #39393950;
+  --gray-900-42: #1818186a;
+  --gray-600-43: #2c2c2c6e;
+  --gray-300-19: #84848430;
+  --gray-500-52: #3f3f3f84;
+  --gray-500-53: #3f3f3f88;
+  --gray-500-60: #3f3f3f99;
+  --gray-500-37: #3333335e;
+  --gray-500-79: #333333ca;
+  --gray-800-82: #2c2c2cd0;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("./assets/fonts/Rubik-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Rubik-md";
+  src: url("./assets/fonts/Rubik-Medium.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Rubik-italic";
+  src: url("./assets/fonts/Rubik-Italic.woff2") format("woff2");
+  font-style: normal;
+}
+
+@layer utilities {
+  .DisplayHeadline {
+    @apply text-(--white) lg:text-3xl text-2xl;
+  }
+  .HeadLine1 {
+    @apply text-(--white) font-[Rubik-md] lg:text-5xl text-4xl;
+  }
+  .HeadLine2 {
+    @apply text-(--gray) lg:text-2xl text-xl;
+  }
+  .Info {
+    @apply text-(--gray) font-[Rubik-md] xl:text-3xl lg:text-[26px] text-2xl;
+  }
+  .ItalicText {
+    @apply text-(--white) font-[Rubik-italic] xl:text-3xl lg:text-[23px] md:text-2xl text-[19px];
+  }
+  .Caption {
+    @apply text-(--gray) sm:text-[16px] text-sm;
+  }
+  .title {
+    @apply text-(--white) sm:text-2xl text-xl;
+  }
+}
+
+body {
+  background-color: var(--gray-900);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Rubik";
+}
+
+.divider1,
+.divider2 {
+  width: 80px;
+  height: 80px;
+  border-radius: 100px;
+  filter: blur(50px);
+  background-color: var(--divider-color, #f2503b);
+  position: absolute;
+}
+
+.divider1 {
+  top: 0;
+  left: 0;
+}
+
+.divider2 {
+  bottom: 0;
+  right: 0;
+}
+
+.inset-shadowing {
+  box-shadow: inset 0px 0px 30px var(--gray-800-82);
+}
+
+.inner-shadowing {
+  box-shadow: inset 1px 0px 5px var(--white-12);
+}
+
+.palette {
+  background: radial-gradient(var(--gray-700), var(--gray-600));
+  border-radius: 100px;
+  border-top: 2px solid var(--gray-500);
+  border-bottom: 1px solid var(--gray-500-31);
+}
+
+.g {
+  background: linear-gradient(-30deg, var(--gray-700), var(--gray-600));
+  border-radius: 32px;
+  border-top: 2px solid var(--white-4);
+  border-left: 2px solid var(--white-4);
+}
+
+#pp {
+  background-image: url("./assets/images/Copilot_20251128_175432-removebg-preview.png"),
+    linear-gradient(-30deg, var(--gray-700), var(--gray-600));
+  border-radius: 32px;
+  border-top: 2px solid var(--white-4);
+  border-left: 2px solid var(--white-4);
+  overflow: hidden;
+  position: relative;
+}
+
+.grid-layouts {
+  display: grid;
+  gap: 12px;
+}
+
+@media (min-width: 1024px) {
+  .grid-layouts {
+    grid-template-areas:
+      "Profile About"
+      "Profile Skills";
+  }
+}
+
+@media (max-width: 1300px) {
+  .grid-layouts {
+    grid-template-areas:
+      "Profile About"
+      "Skills Skills";
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .grid-layouts {
+    grid-template-areas:
+      "Profile Skills"
+      "About About";
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .grid-layouts {
+    grid-template-areas:
+      "Profile"
+      "About"
+      "Skills";
+  }
+}
+
+#Profile {
+  grid-area: Profile;
+}
+#About {
+  grid-area: About;
+}
+#Skills {
+  grid-area: Skills;
+}
+
+.cart-shadowing {
+  box-shadow: inset 1px 1px 8px var(--gray-500), 0px 0px 30px var(--gray-500);
+}
+
+::selection {
+  background-color: var(--gray-500);
+  color: var(--white);
+}
+
+.skills-list li {
+  transition: 0.4s;
+}
+
+.skills-list:hover li {
+  filter: blur(5px) grayscale(1);
+  transform: scale(0.9);
+}
+
+.skills-list li:hover {
+  filter: none;
+  transform: scale(1);
+}
+
+
+.loader {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  position: relative;
+    justify-content: center; 
+  align-items: center; 
+}
+.loader::after,
+.loader::before {
+  content: '';  
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #FFF;
+  position: absolute;
+  left: 0;
+  right: 0;
+  animation: animloader 2s linear infinite;
+}
+.loader::after {
+  animation-delay: 1s;
+}
+
+@keyframes animloader {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
