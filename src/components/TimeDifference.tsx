@@ -8,7 +8,6 @@ export default function TimeDifference() {
     const updateTimes = () => {
       const now = new Date();
 
-      // 1. ساعت ایران با فرمت 24 ساعته (مطمئن‌ترین روش)
       const iranFormatter = new Intl.DateTimeFormat("en-US", {
         hour: "2-digit",
         minute: "2-digit",
@@ -17,12 +16,10 @@ export default function TimeDifference() {
       });
       setIranTime(iranFormatter.format(now));
 
-      // 2. محاسبه تفاوت زمانی
       const iranDate = new Date(
         now.toLocaleString("en-US", { timeZone: "Asia/Tehran" })
       );
 
-      // رند کردن به دقیقه
       const nowRounded = new Date(now);
       const iranRounded = new Date(iranDate);
 
@@ -37,7 +34,6 @@ export default function TimeDifference() {
         return;
       }
 
-      // فرمت کردن تفاوت
       const absDiff = Math.abs(diffMinutes);
       const hours = Math.floor(absDiff / 60);
       const minutes = absDiff % 60;
@@ -56,10 +52,8 @@ export default function TimeDifference() {
       setDifference(diffText);
     };
 
-    // اولین بار اجرا کن
     updateTimes();
 
-    // هر 30 ثانیه آپدیت کن (برای نمایش دقیقه)
     const interval = setInterval(updateTimes, 30000);
 
     return () => clearInterval(interval);
