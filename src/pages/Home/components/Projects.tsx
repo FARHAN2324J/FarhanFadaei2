@@ -16,6 +16,7 @@ const Projects = () => {
             <img
               src={card.src}
               alt={card.title}
+              loading="lazy"
               className="rounded-2xl border border-(--gray-500-31)"
             />
             <div className="flex flex-col mb-4 flex-1">

@@ -17,6 +17,7 @@ const Hero = () => {
         <img
           ref={imgRef}
           src={Profile}
+          loading="eager"
           className="rounded-2xl shadow-lg lg:w-full md:max-w-[350px] w-full object-cover mx-auto cursor-none"
           alt="Farhan Fadaei profile photo"
         />
@@ -206,6 +207,7 @@ const Hero = () => {
                     alt={service.alt}
                     width={150}
                     height={150}
+                    loading="lazy"
                     className="m-auto"
                   />
                   <figcaption className="Caption text-center sm:mt-0 mt-5">
